@@ -78,7 +78,7 @@ margin: 0;
   flex-direction: column;}
 
   /* Hero*/
-  header {
+  header, header div{
     align-items: center;
     background: url(https://picsum.photos/id/900/550/550) no-repeat top center;
     background-size: cover;
@@ -91,7 +91,7 @@ margin: 0;
 }
 
 
-header div { align-items: center;
+header div { 
   background: rgba(255,255, 255, .5);
   width: 100%;
 }
