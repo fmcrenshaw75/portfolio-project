@@ -6,6 +6,7 @@ body {background:rgb(20, 85, 250
   font-family: 'Roboto', sans-serif
   /* Set Base Font Size.*/
   font-size:20px;
+  background image: <img src="https://picsum.photos/id/1048/5616/3744" alt="The Matrix">
 }
 ul {padding: 0;
 }
@@ -52,9 +53,13 @@ input[type="checkbox"]{
 
 
 /* Responsive image is limited to the width of its parent. */
-/* img{
- width
-} */
+
+img{
+  width: 10px;
+}
+
+
+
 
 p {
   font-size: 0.75rem;
@@ -91,7 +96,7 @@ margin: 0;
 }
 
 
-header div { 
+header div {
   background: rgba(255,255, 255, .5);
   width: 100%;
 }
