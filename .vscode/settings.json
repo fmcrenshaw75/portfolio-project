@@ -37,7 +37,18 @@
     
     "eslint.autoFixOnSave": true,
     
-    "files.eol": "\n"
+    "files.eol": "\n",
+    "cSpell.ignoreWords": [
+        "about",
+        "crenshaw",
+        "floyd",
+        "h",
+        "header",
+        "is",
+        "me",
+        "my",
+        "name"
+    ]
     
     }
     
