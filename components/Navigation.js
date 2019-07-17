@@ -1,5 +1,7 @@
-export default
-`<nav>
+export default function(state){
+    return;
+
+    `<nav>
 <ul>
   <li><a href="../">Home</a></li>
   <li><a href="#">About</a></li>
@@ -15,3 +17,4 @@ export default
 </ul>
 </nav>
 `;
+}

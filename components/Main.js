@@ -1,6 +1,15 @@
-export default `
+export default function(state){
+    return;
+    `
  <main>
 <section>
+<h1>Hello World </h1>
+
+  <h2>  My name is Floyd Crenshaw</h2>
+  <p>I am currently in Savvy Coders class</p>
+<p>This is my first time taking coding classes</p>
+<p>I love watching movies</p>
+
   <h2>This is my top section</h2>
 
 
@@ -32,3 +41,4 @@ export default `
         </p>
       </main>
 `;
+}
