@@ -1,6 +1,5 @@
 export default function(state){
-    return;
-    `
+    return `
  <main>
 <section>
 <h1>Hello World </h1>

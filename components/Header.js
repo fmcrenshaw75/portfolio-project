@@ -1,5 +1,5 @@
 export default function(state){
-  return '
+  return `
 <header>
 <div>
   <h1>Hello World </h1>

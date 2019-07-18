@@ -1,7 +1,5 @@
 export default function(state){
-    return;
-
-    `<footer>
+    return `<footer>
 
 </footer>`;
 }
