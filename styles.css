@@ -13,9 +13,28 @@ ul {hover: 0;
 }
 
 li {
-  list-style-type: none;
+  list-style: none;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows:
+    minmax(80px, auto)
+    minmax(60px, auto)
+    minmax(16px, auto)
+    minmax(100px, auto)
+    repeat(2, minmax(80px, auto));
+  grid-gap: 1px;
+  grid-template-areas:
+    "header"
+    "navigation"
+    "main"
+    "aside-1"
+    "aside-2"
+    "footer";
+  height: 100vh;
+}
 h1 {
   color: yellowgreen;
   font-size: 3em;
@@ -45,7 +64,11 @@ p {
 }
 
 /* Navigation */
-nav {
+nav {@media (hover: hover) {
+  a:hover {
+    background: red;
+  }
+
   background: white;
   padding: 10px 0;
 }
