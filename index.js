@@ -52,11 +52,19 @@ const store = {
                 </p>`
     } ,
     'about': {
+        'links': {
+            'primary': [ 'Home', 'About', 'Contact' ],
+            'dropdown': [ 'Projects 1', 'Project 2', 'Project 3' ]
+        },
         'title': 'About Page',
         'page': 'This is the about page'
 
     } ,
     'contact': {
+        'links': {
+            'primary': [ 'Home', 'About', 'Contact' ],
+            'dropdown': [ 'Projects 1', 'Project 2', 'Project 3' ]
+        },
         'title': 'Contact',
         'page': 'This is the Contact page'
 
