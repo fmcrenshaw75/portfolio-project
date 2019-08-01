@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 // describes the current state of the SPA. We say that we pass'pieces of state'
-const states = {
+const store = {
     'home': {
         'title': 'A New Web Developer'
     } ,
