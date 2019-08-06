@@ -6,13 +6,13 @@ import Footer from './components/Footer';
 
 // describes the current state of the SPA. We say that we pass'pieces of state'
 const store = {
-    'links': {
-        'primary': [ 'Home', 'About', 'Contact' ],
-        'dropdown': [ 'Projects 1', 'Project 2', 'Project 3' ]
-    },
-
     'home': {
-        'title': 'A New Web Developer',
+        'links': {
+            'primary': [ 'Home', 'About', 'Contact' ],
+            'dropdown': [ 'Projects 1', 'Project 2', 'Project 3' ]
+ },
+
+ 'title': 'A New Web Developer',
         'page': `<section>
         <h1>Hello World </h1>
 
@@ -68,11 +68,23 @@ const store = {
         'title': 'Contact',
         'page': 'This is the Contact page'
 
-    }
-};
+    },
+
+          'blog': {
+    'links': {
+        'primary': [ 'Home', 'About', 'Contact' ],
+        'dropdown': [ 'Projects 1', 'Project 2', 'Project 3' ]
+    },
+    'title': 'Blog Page',
+
+    'page': ''
+}
+
+
+
 // function declaration . Render is  used to re-render the page.
 
-function render(state){
+    function render(state){
     console.log('state came in as:' , state);
     // We use funtion invocation that actually runs the function ans then 'returns' the markup so that it is properly rendered in the browser.
     document.querySelector('#root').innerHTML = `

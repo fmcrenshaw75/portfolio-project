@@ -151,7 +151,7 @@ main section h2 {
   text-decoration: none;
   text-transform: uppercase;
 
-  /* Normally, you should specify which properites U want to transition. Else, it will do all the 'transition-able' things and that could slow the page down. */
+  /* Normally, you should specify which properties U want to transition. Else, it will do all the 'transition-able' things and that could slow the page down. */
   transition: 0.25s;
 }
 
