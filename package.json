@@ -6,9 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "parcel index.html",
-    "build":  "npx parcel index.html && cp _redirects ./dist/"
+    "build": "npx parcel index.html && cp _redirects ./dist/"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fmcrenshaw75/portfolio-project.git"
@@ -23,5 +22,8 @@
   "devDependencies": {
     "eslint": "^5.16.0",
     "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {
+    "navigo": "^7.1.2"
   }
 }
