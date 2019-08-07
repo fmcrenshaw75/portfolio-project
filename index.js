@@ -4,7 +4,10 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 
+import Navigo from 'navigo';
+
 // describes the current state of the SPA. We say that we pass'pieces of state'
+const router = new Navigo(location.origin);
 const store = {
     'home': {
         'links': {
@@ -12,7 +15,7 @@ const store = {
             'dropdown': [ 'Projects 1', 'Project 2', 'Project 3' ]
  },
 
- 'title': 'A New Web Developer',
+ 'title': 'Art Created Equal',
         'page': `<section>
         <h1>Hello World </h1>
 
@@ -83,16 +86,16 @@ const store = {
 
 
 // function declaration . Render is  used to re-render the page.
+            function render(state){
 
-    function render(state){
     console.log('state came in as:' , state);
-    // We use funtion invocation that actually runs the function ans then 'returns' the markup so that it is properly rendered in the browser.
+    // We use funtion invocation that actually runs the function ans then 'returns' the markup so that it is properly rendered in the browser. */
     document.querySelector('#root').innerHTML = `
         ${Navigation(state)}
         ${Header(state)}
         ${Main(state)}
         ${Footer(state)}
-   `;
+   `};
     const navItems = document.querySelectorAll('nav > ul > li:not(.dropdown)');
 
     navItems.forEach(function eventListenerAdder(navItem){
@@ -116,6 +119,24 @@ navItems.forEach(function eventListenerAdder(navItem){
         render(store[event.target.textContent.toLowerCase()]);
     });
 });
+}
+
+
+    router.on('/', funciton routerFxn(){
+    console.log('hello home page!');
+}).resolve();
+
+    router.on('/About', funciton routerFxn(){
+    console.log('hello About page!');
+}).resolve();
+
+router
+  .on(":page", function handleParams(params){
+    render(store[params.page]);
+
+  })
+  .on('/', function resolver(){})
+  .resolve();
 
 // let i = 0;
 // Here the value of i will run from 0 until 3.
