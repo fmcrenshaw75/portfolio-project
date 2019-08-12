@@ -10,7 +10,7 @@ body {
 ul {hover: 0;
 
   padding: 0;
-}
+}i
 
 li {
   list-style: none;
@@ -19,12 +19,12 @@ li {
 .container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows:
-    minmax(80px, auto)
-    minmax(60px, auto)
-    minmax(16px, auto)
-    minmax(100px, auto)
-    repeat(2, minmax(80px, auto));
+  grid-template-rows: 5fr;
+   minimax (80px, auto)
+    minimax(60px, auto)
+    minimax(16px, auto)
+    minimax(100px, auto)
+    repeat(2, minimax(80px, auto));
   grid-gap: 1px;
   grid-template-areas:
     "header"

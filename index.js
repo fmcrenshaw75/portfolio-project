@@ -48,7 +48,7 @@ const store = {
                   veniam, autem aperiam ullam!
                 </p>
                 <p>
-                  Laudantium, maxime libero, a earum vel, aperiam corrupti quia eaque
+                 Laudantium, maxime libero, a earum vel, aperiam corrupti quia eaque
                   debitis sunt dolores. Assumenda id eos iusto adipisci ut, in
                   voluptatibus architecto earum alias molestiae inventore nam itaque
                   officia recusandae!
@@ -73,7 +73,7 @@ const store = {
 
     },
 
-          'blog': {
+        'blog': {
     'links': {
         'primary': [ 'Home', 'About', 'Contact' ],
         'dropdown': [ 'Projects 1', 'Project 2', 'Project 3' ]
@@ -81,31 +81,33 @@ const store = {
     'title': 'Blog Page',
 
     'page': ''
-}
+} }
+function render (state){
+    console.log('state came in as:', state);
 
-
-
-// function declaration . Render is  used to re-render the page.
-            function render(state){
-
-    console.log('state came in as:' , state);
-    // We use funtion invocation that actually runs the function ans then 'returns' the markup so that it is properly rendered in the browser. */
+    // We use function invocation that actually runs the fxn. and then `returns` the markup so that it is properly rendered in the browser.
     document.querySelector('#root').innerHTML = `
-        ${Navigation(state)}
-        ${Header(state)}
-        ${Main(state)}
-        ${Footer(state)}
-   `};
-    const navItems = document.querySelectorAll('nav > ul > li:not(.dropdown)');
+${Navigation(state)}
+${Header(state)}
+${Main(state)}
+${Footer(state)}
+`;
+    `
+${Navigation(state)}
+${Header(state)}
+${Main(state)}
+${Footer(state)}
+    `;
 
-    navItems.forEach(function eventListenerAdder(navItem){
-        navItem.addEventListener('click' , function clickHandler(event){
-            event.preventDefault();
-            // console.log(event.target.textContent.toLowerCase());
-            render(store[event.target.textContent.toLowerCase()]);
-        });
+
+
+    navItem.addEventListener('click', function clickHandler(event){
+        event.preventDefault();
+
+        // Recursive fxn. call
+        render(states[event.target.textContent.toLowerCase()]);
     });
-}
+};
 // invokation
 // to render a page we pass in piece of state
 render(store.home);
@@ -116,14 +118,24 @@ navItems.forEach(function eventListenerAdder(navItem){
     navItem.addEventListener('click' , function clickHandler(event){
         event.preventDefault();
         // console.log(event.target.textContent.toLowerCase());
+        event.preventDefault();
+
+        // Recursive fxn. call
+        render(states[event.target.textContent.toLowerCase()]);
         render(store[event.target.textContent.toLowerCase()]);
     });
 });
-}
 
 
-    router.on('/', funciton routerFxn(){
-    console.log('hello home page!');
+// To render a page, we pass in a piece of state.
+render(states.home);
+render(store.home);
+
+
+
+    router.on('/', funciton
+    routerFxn(){
+    console.log("hello home page!");
 }).resolve();
 
     router.on('/About', funciton routerFxn(){
