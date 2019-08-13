@@ -5,17 +5,21 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 
 import Navigo from 'navigo';
+import axios from 'axios';
+
 
 // describes the current state of the SPA. We say that we pass'pieces of state'
 const router = new Navigo(location.origin);
 const store = {
     'home': {
         'links': {
-            'primary': [ 'Home', 'About', 'Contact' ],
-            'dropdown': [ 'Projects 1', 'Project 2', 'Project 3' ]
- },
+            'primary': [ 'Home', 'About', 'Contact', 'Blog' ],
 
- 'title': 'Art Created Equal',
+            'dropdown': [ 'Project 1', 'Project 2', 'Project 3' ]
+
+        },
+
+        'title': 'Art Created Equal',
         'page': `<section>
         <h1>Hello World </h1>
 
@@ -73,16 +77,18 @@ const store = {
 
     },
 
-        'blog': {
-    'links': {
-        'primary': [ 'Home', 'About', 'Contact' ],
-        'dropdown': [ 'Projects 1', 'Project 2', 'Project 3' ]
-    },
-    'title': 'Blog Page',
+    'blog': {
+        'links': {
+            'primary': [ 'Home', 'About', 'Contact' ],
+            'dropdown': [ 'Projects 1', 'Project 2', 'Project 3' ]
+        },
+        'title': 'Blog Page',
 
-    'page': ''
-} }
-function render (state){
+        'page': ''
+    }
+};
+
+function render(state){
     console.log('state came in as:', state);
 
     // We use function invocation that actually runs the fxn. and then `returns` the markup so that it is properly rendered in the browser.
@@ -92,14 +98,6 @@ ${Header(state)}
 ${Main(state)}
 ${Footer(state)}
 `;
-    `
-${Navigation(state)}
-${Header(state)}
-${Main(state)}
-${Footer(state)}
-    `;
-
-
 
     navItem.addEventListener('click', function clickHandler(event){
         event.preventDefault();
@@ -107,48 +105,49 @@ ${Footer(state)}
         // Recursive fxn. call
         render(states[event.target.textContent.toLowerCase()]);
     });
-};
+}
 // invokation
 // to render a page we pass in piece of state
 render(store.home);
 // The Element wil not exist until page is rendered.
-const navItems = document.querySelectorAll('nav > ul > li:not(.dropdown)');
-
-navItems.forEach(function eventListenerAdder(navItem){
-    navItem.addEventListener('click' , function clickHandler(event){
-        event.preventDefault();
-        // console.log(event.target.textContent.toLowerCase());
-        event.preventDefault();
-
-        // Recursive fxn. call
-        render(states[event.target.textContent.toLowerCase()]);
-        render(store[event.target.textContent.toLowerCase()]);
-    });
-});
-
-
-// To render a page, we pass in a piece of state.
-render(states.home);
-render(store.home);
-
-
-
-    router.on('/', funciton
-    routerFxn(){
-    console.log("hello home page!");
-}).resolve();
-
-    router.on('/About', funciton routerFxn(){
-    console.log('hello About page!');
-}).resolve();
-
 router
-  .on(":page", function handleParams(params){
-    render(store[params.page]);
 
-  })
-  .on('/', function resolver(){})
-  .resolve();
+    .on(':view', (params) => {
+        render(store[params.view]);
+    })
+
+    .resolve();
+
+
+axios.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
+    const blogPosts = response.data;
+
+
+    // blogPosts is an `Array` of Object Literals
+
+    const blogHTML = blogPosts
+
+        .map(
+
+            (blogPost) => `
+
+          <section>
+
+          <h2>${blogPost.title}</h2>
+
+          <p>${blogPost.body}</p>
+
+          </section>
+
+        `
+
+        )
+
+        .join(' ');
+
+
+    store.blog.page = blogHTML;
+});
 
 // let i = 0;
 // Here the value of i will run from 0 until 3.

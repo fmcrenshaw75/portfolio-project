@@ -1,205 +1,369 @@
 body {
-  background: rgba(2, 27, 66, 0.91);
+
+  background: rgba(26, 91, 199, 0.91);
+
   color: red;
+
   font-family: "Roboto", sans-serif;
 
+
+
   /* Set BASE FONT SIZE. If we don't set this, browser uses 16px. */
+
   font-size: 20px;
+
 }
 
-ul {hover: 0;
+
+
+ul {
 
   padding: 0;
-}i
+
+}
+
+
 
 li {
-  list-style: none;
+
+  list-style-type: none;
+
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 5fr;
-   minimax (80px, auto)
-    minimax(60px, auto)
-    minimax(16px, auto)
-    minimax(100px, auto)
-    repeat(2, minimax(80px, auto));
-  grid-gap: 1px;
-  grid-template-areas:
-    "header"
-    "navigation"
-    "main"
-    "aside-1"
-    "aside-2"
-    "footer";
-  height: 100vh;
+
+
+li:hover,
+
+li:focus {
+
+  cursor: pointer;
+
 }
+
+
+
 h1 {
-  color: yellowgreen;
-  font-size: 3em;
+
+  color: green;
+
+  font-size: 2em;
+
 }
+
+
 
 h2 {
+
   font-size: 1.5em;
+
 }
+
+
 
 figure {
+
   margin: 25px auto;
+
   text-align: center;
+
   width: 100vw;
+
 }
+
+
 
 /* Responsive image is limited to the width of its parent. */
+
 img {
+
   max-width: 100%;
+
 }
+
+
 
 section {
+
   font-size: 10px;
+
 }
+
+
 
 p {
+
   font-size: 0.75em;
+
 }
+
+
 
 /* Navigation */
-nav {@media (hover: hover) {
-  a:hover {
-    background: red;
-  }
+
+nav {
 
   background: white;
+
   padding: 10px 0;
+
 }
+
+
 
 nav > ul {
+
   display: flex;
+
   justify-content: space-around;
+
   margin: 0;
+
 }
+
+
 
 .dropdown ul {
+
   background: white;
-  bottom: left;
+
+
 
   /* top-left, top-right, bottom-right, bottom-left */
+
   border-radius: 0 3px 3px 3px;
 
+
+
   box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.5);
+
   display: none;
+
   padding: 8px;
 
+
+
   /* Moves this out of the 'document flow' such that when it appears, it doesn't 'push' anything out of the way. */
+
   position: absolute;
+
 }
+
+
 
 /* Generally, 'focus' goes with 'hover' state to help with keyboard navigation and accessiblity. */
+
 .dropdown:focus ul,
+
 .dropdown:hover ul {
+
   display: flex;
+
   flex-direction: column;
+
 }
+
+
 
 /* Hero */
+
 header,
-header div {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-header {
-  /* background-image: url(https://picsum.photos/960/550);
-  background-repeat: no-repeat;
-  background-position: top center; */
-  background: url(https://picsum.photos/id/1031/5446/3063) repeat top center;
-  background-size: cover;
-  height: 80vh;
-}
 
 header div {
+
+  align-items: center;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+}
+
+header {
+
+  /* background-image: url(https://picsum.photos/960/550);
+
+  background-repeat: no-repeat;
+
+  background-position: top center; */
+
+  background: url(https://picsum.photos/id/1048/5616/3744) no-repeat top center;
+
+  background-size: cover;
+
+  height: 80vh;
+
+}
+
+
+
+header div {
+
   background: rgba(255, 255, 255, 0.5);
+
+
 
   /* % checks the parent's width and scales accordingly. */
+
   width: 100%;
+
 }
+
+
 
 /* Main */
+
 main {
+
   display: flex;
+
 }
+
+
 
 main > section {
+
   background: rgba(255, 255, 255, 0.5);
+
   color: #333;
+
   margin: 10px;
+
   padding: 15px;
+
 }
+
+
 
 main section h2 {
+
   font-weight: bold;
+
   text-transform: uppercase;
+
 }
+
+
 
 .cta-btn {
+
   background: yellow;
+
   border-radius: 3px;
+
   display: inline-block;
+
   margin: 10px 0;
+
   padding: 10px;
+
   text-decoration: none;
+
   text-transform: uppercase;
 
-  /* Normally, you should specify which properties U want to transition. Else, it will do all the 'transition-able' things and that could slow the page down. */
+
+
+  /* Normally, you should specify which properites U want to transition. Else, it will do all the 'transition-able' things and that could slow the page down. */
+
   transition: 0.25s;
+
 }
+
+
 
 .cta-btn:focus,
+
 .cta-btn:hover {
+
   background: greenyellow;
+
   transform: translateY(-3px);
+
 }
+
+
 
 /* Footer */
+
 footer {
+
   border-top: solid 3px peru;
+
   margin-top: 10px;
+
   padding: 3px 10px 10px 10px;
+
 }
+
+
 
 footer li {
+
   display: inline-block;
+
 }
+
+
 
 /* Form */
+
 form {
-  border: solid 3px rgb(6, 248, 59);
-  margin: 15px ;
+
+  border: solid 3px pink;
+
+  margin: 15px auto;
+
   padding: 10px;
-  width: 30vw;
-  float: left;
+
+  width: 60vw;
+
 }
+
+
 
 form span {
+
   margin: 0 5px;
+
 }
+
+
 
 /* Attribute Selector */
+
 input[type="checkbox"],
+
 input[type="radio"] {
+
   transform: translateY(-3px);
+
 }
+
+
 
 input[type="checkbox"] {
+
   margin-right: 10px;
+
 }
+
+
 
 .input-group {
+
   margin: 15px 0;
+
 }
 
+
+
 .input-group--flex {
+
   display: flex;
+
   flex-direction: column;
+
   max-width: 50%;
+
+}

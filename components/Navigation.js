@@ -1,32 +1,53 @@
 function linkBuilder(links){
-    //
-    //
+    // const linkHTML = links.map(function linkLister(link){
+
+    //     return `<li>${link}</li>`;
+
+    // });
+
+
+    // return linkHTML.join(' ');
+
     return links
+
         .map(function linkLister(link){
-            return `<li><a href="/${link.toLowerCase()}" data-navigo${link}</a></li>`;
+            /**
+
+            * An HTML data attribute provides additional information that can be used by JS as a hook.
+
+            * In this case, 'navigo' is somethign that navigo uses to bind the link 'text' to the   Navigo router.
+
+         */
+
+            return `<li><a href="/${link.toLowerCase()}" data-navigo>${link}</a></li>`;
         })
-        .join('');
+
+        .join(' ');
 }
 
-// links.forEach(function linkHandler(link){
-//   listHTML += `
-// <li>${link}</li>
-//  `;
-// });
 
-//
-export default function(state){
-    return `
-    <nav>
-<ul>
-  ${linkBuilder(state.links.primary)}
-  <li class="dropdown">
-    Portfolio
+export default (state) => `
+
+<nav>
+
     <ul>
-    ${linkBuilder(state.links.dropdown)}
+
+        ${linkBuilder(state.links.primary)}
+
+      <li class="dropdown">
+
+        Portfolio
+
+        <ul>
+
+          ${linkBuilder(state.links.dropdown)}
+
+        </ul>
+
+      </li>
+
     </ul>
-  </li>
-</ul>
-</nav>
+
+  </nav>
+
 `;
-}

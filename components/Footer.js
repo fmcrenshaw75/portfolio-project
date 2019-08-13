@@ -1,5 +1,9 @@
-export default function(state){
-    return `<footer>
+export default () => `
 
-</footer>`;
-}
+    <footer>
+
+      <h2>This is my footer</h2>
+
+    </footer>
+
+`;

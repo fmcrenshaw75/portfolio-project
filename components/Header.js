@@ -1,10 +1,15 @@
-export default function(state){
-  return `
-<header>
-<div>
-  <h1>Hello World </h1>
-  <h2>My name is Floyd Crenshaw
+export default (state) => `
 
-</header>
+    <header>
+
+      <div>
+
+        <h1>${state.title}</h1>
+
+        <h2>My name is Floyd Crenshaw</h2>
+
+      </div>
+
+    </header>
+
 `;
-}
